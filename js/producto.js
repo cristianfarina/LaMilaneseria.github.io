@@ -12,42 +12,20 @@ class Producto {
 //Declarar el array producto (que es una colección de objetos producto), e inicializarlo vacio
 let producto = [];
 
-//Expresión del objeto 'producto#', e instanciar usando la clase 'Producto'
-const producto1 = new Producto(
-  1,
-  "Naponesa",
-  "Milanesa con tomate, jamón y queso",
-  3900,
-  "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/milaNaponesa.jpeg?v=1669167027269);"
-);
-producto.push(producto1);
-
-const producto2 = new Producto(
-  2,
-  "Rúcula y Crudo",
-  "Milanesa con rúcula y jamón crudo",
-  4300,
-  "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/milaJamonRucula.jpeg?v=1669166960609);"
-);
-producto.push(producto2);
-
-const producto3 = new Producto(
-  3,
-  "Panceta y Verdeo",
-  "Milanesa con panceta y verdeo",
-  4500,
-  "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/pancetaVerdeo.jfif?v=1669165974056);"
-);
-producto.push(producto3);
-
-const producto4 = new Producto(
-  4,
-  "Vegetariana",
-  "Milanesa vegetariana",
-  3700,
-  "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/rsz_vegetariana.jpg?v=1669167653226);"
-);
-producto.push(producto4);
+//Declarar función para hacer un mapeo de 'data' en un tipo de objeto 'producto'
+const obtenerProductos = (data) => {
+  data.forEach((unDato) => {
+    let unProducto = new Producto(
+      unDato.id,
+      unDato.nombre,
+      unDato.descripcion,
+      unDato.precio,
+      unDato.imgUrl
+    );
+    producto.push(unProducto);
+  });
+  //--> console.log(producto);
+};
 
 // Capturar el contenedor de productos
 const contenedorProductos = document.getElementById("contenedor-productos");
@@ -85,10 +63,10 @@ const pintarProductos = (producto) => {
   contenedorProductos.appendChild(fragment);
 };
 
-// Declarar función para detectar los botones 'Agregar' de las cards y asociarlos con un evento que capture el click y ejecute una funcion
+// Declarar función para detectar los botones 'Agregar' de las cardProduct y asociarlos con un evento que capture el click y ejecute una funcion
 const detectarBotonesAgregar = (producto) => {
-  // Capturar dentro de los elementos del document que contienen la clase 'card', todos los elementos que contengan la etiqueta button, y los cargamos en el array botonesAgregar
-  const botonesAgregar = document.querySelectorAll(".card button");
+  // Capturar dentro de los elementos del document que contienen la clase 'cardProduct', todos los elementos que contengan la etiqueta button, y los cargamos en el array botonesAgregar
+  const botonesAgregar = document.querySelectorAll(".cardProduct button");
 
   // Recorrer el array de botonesAgregar
   botonesAgregar.forEach((unBotonAgregar) => {
@@ -120,8 +98,23 @@ const detectarBotonesAgregar = (producto) => {
 
 // Usar event listener para asegurarnos que ya se cargó completamente la página, antes de ejecutar las funciones
 document.addEventListener("DOMContentLoaded", () => {
-  // Pintar los productos en la página
-  pintarProductos(producto);
-  // Detectar los botones 'Agregar' de las cards y asociar el evento click a una función
-  detectarBotonesAgregar(producto);
+  fetchData();
 });
+
+const fetchData = async () => {
+  try {
+    const respuesta = await fetch("./api/data.json");
+    const data = await respuesta.json();
+    //--> console.log(data);
+    //Hacer un mapeo de 'data', usando la clase 'Producto'
+    obtenerProductos(data);
+    // Pintar los productos en la página
+    pintarProductos(producto);
+    // Detectar los botones 'Agregar' de las cardProduct y asociar el evento click a una función
+    detectarBotonesAgregar(producto);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// AGREGAR FINALIZAR COMPRA

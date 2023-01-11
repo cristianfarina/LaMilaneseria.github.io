@@ -102,19 +102,10 @@ const accionBotones = () => {
       const unProducto = carrito[unBotonDisminuir.dataset.id];
       // A la cantidad previa del producto correspondiente, le resto 1
       unProducto.cantidad--;
-      // Después de restar una unidad, si la cantidad es igual a cero, borro esa propiedad (item) del objeto carrito
-      if (unProducto.cantidad === 0) {
-        delete carrito[unBotonDisminuir.dataset.id];
-      } else {
-        // Sino, agregamos una copia de 'unProducto' (con spread operator), en el atributo 'unBotonDisminuir.dataset.id' del carrito, sobreescribiendo el objeto existente.
-        carrito[unBotonDisminuir.dataset.id] = { ...unProducto };
-      }
-      // Si el carrito quedó sin productos, vaciar el LocalStorage, sino guardarlo en él
-      if (Object.keys(carrito).length === 0) {
-        localStorage.clear();
-      } else {
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-      }
+      // Uso de operador ternario. Después de restar una unidad, si la cantidad es igual a cero, borro esa propiedad (item) del objeto carrito. Sino, agregamos una copia de 'unProducto' (con spread operator), en el atributo 'unBotonDisminuir.dataset.id' del carrito, sobreescribiendo el objeto existente.
+      unProducto.cantidad === 0 ? (delete carrito[unBotonDisminuir.dataset.id]) : (carrito[unBotonDisminuir.dataset.id] = { ...unProducto });
+      // Uso de operador ternario. Si el carrito quedó sin productos, vaciar el LocalStorage, sino guardarlo en él
+      Object.keys(carrito).length === 0 ? (localStorage.clear()) : (localStorage.setItem("carrito", JSON.stringify(carrito)));
       // Llamar a la función pintarProductosEnCarrito para actualizar el contenido del carrito
       pintarProductosEnCarrito();
     });

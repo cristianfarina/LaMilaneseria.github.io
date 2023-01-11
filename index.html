@@ -32,16 +32,18 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">LOGO</a>
+        <a class="navbar-brand" href="./index.html">
+          <img src="./images/logo.png" alt="" class="logo" />
+        </a>
         <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html">Inicio</a>
+          <li class="nav-item">
+            <a class="nav-link" href="#contenedor-productos">Menú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contenedor-carrito">Carrito</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#mapa">Ubicación</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contenedor-productos">Menú</a>
           </li>
         </ul>
       </nav>
@@ -59,7 +61,7 @@
       <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2">
-            <div class="card">
+            <div class="card mb-1">
               <div
                 title="Milanesa vegetariana"
                 class="cover cover-small"
@@ -74,7 +76,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2">
-            <div class="card">
+            <div class="card mb-1">
               <div
                 title="Imagen con comida casera"
                 class="cover cover-small"
@@ -90,7 +92,7 @@
           </div>
 
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2">
-            <div class="card">
+            <div class="card mb-1">
               <div
                 title="Imagen de bocaditos fritos"
                 class="cover cover-small"
@@ -113,7 +115,7 @@
 
     <section>
       <div class="container mt-5 mb-5">
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-12 col-sm-6 col-lg-5">
             <img
               src="https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/RunningDoodle.svg?v=1669168570444"
@@ -122,45 +124,19 @@
           </div>
           <div class="col-12 col-sm-6">
             <h3>¡Siempre es un buen momento para una milanesa!</h3>
-            <p>Ordena tu menú a domicilio o visitanos en nuestro local</p>
+            <p>
+              Agrega tu menú al carrito y completa el formulario para realizar un pedido, o visitanos en nuestro local
+            </p>
             <a href="#mapa">Ir al mapa</a>
           </div>
         </div>
-        <form action="" id="user-form">
-          <label for="nombre">Ingresa tu nombre</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="nombre" id="nombre" class="form-control" />
-            </div>
-          </div>
-          <label for="telefono">Teléfono</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="telefono" id="telefono" class="form-control" />
-            </div>
-          </div>
-          <label for="email">Correo electrónico</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="email" id="email" class="form-control" />
-            </div>
-            <buttom id="btn-enviar" type="submit" class="btn btn-primary">
-              Enviar
-            </buttom>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <section>
-      <div class="container mt-5 mb-5">
         <!-- Productos -->
         <div class="row justify-content-center" id="contenedor-productos"></div>
 
         <!-- Template Productos -->
         <template id="template-productos">
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-2">
-            <div class="card">
+            <div class="cardProduct mb-3">
               <div
                 title="Milanesa con tomate, jamón y queso"
                 class="cover cover-small"
@@ -169,7 +145,7 @@
                 "
               ></div>
               <div class="card-body">
-                <h5 class="card-title">Naponesa</h5>
+                <h5 class="cardProduct-title">Naponesa</h5>
                 <span class="badge badge-info">$3900</span>
               </div>
               <div class="card-footer stripe-container">
@@ -181,13 +157,13 @@
         <!-- Fin Productos -->
 
         <!-- Carrito -->
-        <div class="my-5">
+        <div class="mt-5 mb-3" id="contenedor-carrito">
           <h4>Carrito de compras</h4>
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Item</th>
+                <th scope="col">Menú</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Acción</th>
                 <th scope="col">Subtotal</th>
@@ -203,6 +179,158 @@
             </tfoot>
           </table>
         </div>
+
+        <!-- Formulario -->
+        <form action="" class="formulario" id="formulario">
+          <!-- Grupo Nombre -->
+          <div class="formulario__grupo" id="grupo__nombre">
+            <label for="nombre" class="formulario__label"
+              >Ingresa tu nombre</label
+            >
+            <div class="formulario__grupo-input">
+              <input
+                type="text"
+                class="formulario__input"
+                name="nombre"
+                id="nombre"
+              />
+              <i
+                class="formulario__validacion-estado fa-solid fa-circle-xmark"
+              ></i>
+            </div>
+            <p class="formulario__input-error">
+              El nombre debe tener entre 3 y 16 dígitos, y solo puede
+              contener números, letras y guion bajo
+            </p>
+          </div>
+
+          <!-- Grupo Direccion -->
+          <div class="formulario__grupo" id="grupo__direccion">
+            <label for="direccion" class="formulario__label">Dirección</label>
+            <div class="formulario__grupo-input">
+              <input
+                type="text"
+                class="formulario__input"
+                name="direccion"
+                id="direccion"
+              />
+              <i
+                class="formulario__validacion-estado fa-solid fa-circle-xmark"
+              ></i>
+            </div>
+            <p class="formulario__input-error">
+              La dirección solo puede contener letras, números, puntos, guiones
+              y guion bajo; y debe contener de 4 a 20 dígitos
+            </p>
+          </div>
+
+          <!-- Grupo Correo Electrónico -->
+          <div class="formulario__grupo" id="grupo__correo">
+            <label for="correo" class="formulario__label"
+              >Correo electrónico</label
+            >
+
+            <div class="formulario__grupo-input">
+              <input
+                type="email"
+                class="formulario__input"
+                name="correo"
+                id="correo"
+              />
+              <i
+                class="formulario__validacion-estado fa-solid fa-circle-xmark"
+              ></i>
+            </div>
+
+            <p class="formulario__input-error">
+              El correo solo puede contener letras, números, puntos, guiones y
+              guion bajo
+            </p>
+          </div>
+
+          <!-- Grupo Teléfono -->
+          <div class="formulario__grupo" id="grupo__telefono">
+            <label for="telefono" class="formulario__label">Teléfono</label>
+            <div class="d-flex">
+              <div class="formulario__grupo-input flex-fill mr-2">
+                <input
+                  type="text"
+                  class="formulario__input"
+                  name="telefono"
+                  id="telefono"
+                  placeholder="261155567890"
+                />
+                <i
+                  class="formulario__validacion-estado fa-solid fa-circle-xmark"
+                ></i>
+              </div>
+              <button type="submit" class="btn btn-success">Comprar</button>
+            </div>
+            <p class="formulario__input-error">
+              El teléfono solo puede contener números y el máximo son 12 dígitos
+            </p>
+            <div class="formulario__grupo-btn-comprar">
+              <p
+                class="formulario__mensaje-exito"
+                id="formulario__mensaje-exito"
+              >
+                Los datos se cargaron exitosamente!
+              </p>
+            </div>
+          </div>
+
+          <div class="formulario__mensaje" id="formulario__mensaje-carrito">
+            <p>
+              <i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Debe agregar al menos un menú al carrito.
+            </p>
+          </div>
+
+          <div class="formulario__mensaje" id="formulario__mensaje">
+            <p>
+              <i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Por
+              favor complete todos los datos del formulario.
+            </p>
+          </div>
+          <!--
+          <div class="formulario__grupo formulario__grupo-btn-comprar">
+            <button type="submit" class="formulario__btn">Comprar</button>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+              Los datos se cargaron exitosamente!
+            </p>
+          </div>
+          -->
+        </form>
+        <!--
+        <form action="" id="user-form">
+          <label for="nombre">Ingresa tu nombre</label>
+          <div class="d-flex">
+            <div class="flex-fill mr-2">
+              <input type="nombre" id="nombre" class="form-control" />
+            </div>
+          </div>
+          <label for="telefono">Teléfono</label>
+          <div class="d-flex">
+            <div class="flex-fill mr-2">
+              <input type="telefono" id="telefono" class="form-control" />
+            </div>
+          </div>
+          <label for="direccion">Dirección</label>
+          <div class="d-flex">
+            <div class="flex-fill mr-2">
+              <input type="direccion" id="direccion" class="form-control" />
+            </div>
+          </div>
+          <label for="email">Correo electrónico</label>
+          <div class="d-flex">
+            <div class="flex-fill mr-2">
+              <input type="email" id="email" class="form-control" />
+            </div>
+            <buttom id="btn-enviar" type="submit" class="btn btn-success">
+              Comprar
+            </buttom>
+          </div>
+        </form>
+        -->
       </div>
 
       <!-- Template footer Carrito -->
@@ -224,8 +352,8 @@
           <td>Café</td>
           <td>1</td>
           <td>
-            <button class="btn btn-info btn-sm">+</button>
             <button class="btn btn-danger btn-sm">-</button>
+            <button class="btn btn-info btn-sm">+</button>
           </td>
           <td>$ <span>500</span></td>
         </tr>
@@ -253,6 +381,11 @@
     </section>
     <!-- Fin ubicación Maps-->
 
+    <!-- Script Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/b3ba85b838.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Script Sweetalert -Próximo desarrollo- -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Script Toastify -Próximo desarrollo- -->
@@ -263,5 +396,6 @@
     <!-- Script aplicación-->
     <script src="./js/producto.js"></script>
     <script src="./js/carrito.js"></script>
+    <script src="./js/formulario.js"></script>
   </body>
 </html>

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Naponesa",
+    "descripcion": "Milanesa con tomate, jamón y queso",
+    "precio": 3900,
+    "imgUrl": "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/milaNaponesa.jpeg?v=1669167027269);"
+  },
+  {
+    "id": 2,
+    "nombre": "Rúcula y Crudo",
+    "descripcion": "Milanesa con rúcula y jamón crudo",
+    "precio": 4300,
+    "imgUrl": "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/milaJamonRucula.jpeg?v=1669166960609);"
+  },
+  {
+    "id": 3,
+    "nombre": "Panceta y Verdeo",
+    "descripcion": "Milanesa con panceta y verdeo",
+    "precio": 4500,
+    "imgUrl": "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/pancetaVerdeo.jfif?v=1669165974056);"
+  },
+  {
+    "id": 4,
+    "nombre": "Cuatro quesos",
+    "descripcion": "Milanesa vegetariana",
+    "precio": 4100,
+    "imgUrl": "background-image: url(https://cdn.glitch.global/a0be5666-5787-40c2-8bf0-5be519a01a1e/cuatroQuesos.jfif?v=1669168857206);"
+  }
+]
