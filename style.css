@@ -115,6 +115,10 @@ h5 {
   transform: scale(1.1);
 }
 
+.img-logo {
+  height: 100px;
+}
+
 .nav-link {
   margin: -5px;
   font-size: 18px;
@@ -123,6 +127,10 @@ h5 {
 
 .nav-link:hover {
   transform: scale(1.1);
+}
+
+.invisible {
+  display: none;
 }
 
 /*region formulario*/
@@ -242,4 +250,10 @@ h5 {
   .formulario__grupo-btn-comprar {
     grid-column: 1;
   }
+}
+
+@media screen and (max-width: 400px) {
+  .nav-link {
+    font-size: 14px;    
+  }  
 }
