@@ -19,6 +19,8 @@ h5 {
   background-position: center;
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: darken;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .cover-small {
@@ -119,9 +121,17 @@ h5 {
   height: 100px;
 }
 
+.navbar{
+  box-shadow: 1px 1px 3px 0px #575965;
+  padding: 5px 15px;
+  border: 0;
+}
+
 .nav-link {
   margin: -5px;
   font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #121212;
   text-transform: uppercase;
 }
 
@@ -254,6 +264,7 @@ h5 {
 
 @media screen and (max-width: 400px) {
   .nav-link {
-    font-size: 14px;    
+    font-size: 16px;
+    margin: -10px;    
   }  
 }
