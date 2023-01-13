@@ -121,7 +121,7 @@ h5 {
   height: 100px;
 }
 
-.navbar{
+.navbar {
   box-shadow: 1px 1px 3px 0px #575965;
   padding: 5px 15px;
   border: 0;
@@ -265,6 +265,6 @@ h5 {
 @media screen and (max-width: 400px) {
   .nav-link {
     font-size: 16px;
-    margin: -10px;    
-  }  
+    margin: -10px;
+  }
 }

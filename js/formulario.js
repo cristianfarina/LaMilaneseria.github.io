@@ -3,8 +3,9 @@ const inputs = document.querySelectorAll("#formulario input");
 
 const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{3,16}$/, // Letras y espacios, pueden llevar acentos.
-  direccion: /^[a-zA-Z0-9\_\-]{4,20}$/, // Letras, numeros, guion y guion_bajo
-  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  direccion: /^[a-zA-ZÀ-ÿ0-9\s\_\-]{4,60}$/, // Letras, numeros, guion y guion_bajo
+  correo:
+    /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/i /*/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/*/,
   telefono: /^\d{7,12}$/, // 7 a 12 numeros.
 };
 
@@ -91,11 +92,7 @@ formulario.addEventListener("submit", (e) => {
 
   if (campos.nombre && campos.direccion && campos.correo && campos.telefono) {
     formulario.reset();
-    /* campos.nombre = false;
-    campos.direccion = false;
-    campos.correo = false;
-    campos.telefono = false; 
-    console.log("campos: ", campos);*/
+
     document
       .getElementById("formulario__mensaje-exito")
       .classList.add("formulario__mensaje-exito-activo");
@@ -109,7 +106,6 @@ formulario.addEventListener("submit", (e) => {
     campos.direccion = false;
     campos.correo = false;
     campos.telefono = false;
-    console.log("campos: ", campos);
 
     document
       .querySelectorAll(".formulario__grupo-correcto")
@@ -117,10 +113,9 @@ formulario.addEventListener("submit", (e) => {
         icono.classList.remove("formulario__grupo-correcto");
       });
 
-    carrito = {};  
+    carrito = {};
     localStorage.clear();
     pintarProductosEnCarrito();
-    
   } else {
     document
       .getElementById("formulario__mensaje")
