@@ -56,6 +56,7 @@
       </div>
     </header>
 
+    <!-- Sección Presentación -->
     <section>
       <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
@@ -111,7 +112,9 @@
         </div>
       </div>
     </section>
+    <!-- Fin Sección Presentación -->
 
+    <!-- Sección Compras -->
     <section>
       <div class="container mt-5 mb-5">
         <div class="row mb-3">
@@ -179,6 +182,33 @@
             </tfoot>
           </table>
         </div>
+
+        <!-- Template Carrito -->
+        <template id="template-carrito">
+          <tr>
+            <th scope="row" class="invisible">id</th>
+            <td></td>
+            <td></td>
+            <td>
+              <button class="btn btn-danger btn-sm">-</button>
+              <button class="btn btn-info btn-sm">+</button>
+            </td>
+            <td>$ <span>500</span></td>
+          </tr>
+        </template>
+
+        <!-- Template footer Carrito -->
+        <template id="template-footer">
+          <th class="font-weight-bold" scope="row">TOTAL</th>
+          <td class="font-weight-bold">10</td>
+          <td>
+            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </td>
+          <td class="font-weight-bold">$ <span>5000</span></td>
+        </template>
+        <!-- Fin Carrito -->
 
         <!-- Formulario -->
         <form action="" class="formulario" id="formulario">
@@ -295,78 +325,24 @@
               formulario por favor
             </p>
           </div>
-          <!--
-          <div class="formulario__grupo formulario__grupo-btn-comprar">
-            <button type="submit" class="formulario__btn">Comprar</button>
-            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
-              Los datos se cargaron exitosamente!
-            </p>
-          </div>
-          -->
         </form>
-        <!--
-        <form action="" id="user-form">
-          <label for="nombre">Ingresa tu nombre</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="nombre" id="nombre" class="form-control" />
-            </div>
-          </div>
-          <label for="telefono">Teléfono</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="telefono" id="telefono" class="form-control" />
-            </div>
-          </div>
-          <label for="direccion">Dirección</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="direccion" id="direccion" class="form-control" />
-            </div>
-          </div>
-          <label for="email">Correo electrónico</label>
-          <div class="d-flex">
-            <div class="flex-fill mr-2">
-              <input type="email" id="email" class="form-control" />
-            </div>
-            <buttom id="btn-enviar" type="submit" class="btn btn-success">
-              Comprar
-            </buttom>
-          </div>
-        </form>
-        -->
+        <!-- Fin Formulario -->
       </div>
-
-      <!-- Template footer Carrito -->
-      <template id="template-footer">
-        <th class="font-weight-bold" scope="row">TOTAL</th>
-        <td class="font-weight-bold">10</td>
-        <td>
-          <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-            vaciar
-          </button>
-        </td>
-        <td class="font-weight-bold">$ <span>5000</span></td>
-      </template>
-
-      <!-- Template Carrito -->
-      <template id="template-carrito">
-        <tr>
-          <th scope="row" class="invisible">id</th>
-          <td></td>
-          <td></td>
-          <td>
-            <button class="btn btn-danger btn-sm">-</button>
-            <button class="btn btn-info btn-sm">+</button>
-          </td>
-          <td>$ <span>500</span></td>
-        </tr>
-      </template>
-      <!-- Fin Carrito -->
     </section>
+    <!-- Fin Sección Compras -->
 
-    <!-- Ubicación Maps-->
-    <section>
+    <!-- Sección Modal Confirmación de Pedido -->
+    <section class="modal-pedido">
+      <div class="modal-pedido__contenedor">
+        <h2 class="modal-pedido__titulo">Confirmación de Pedido</h2>
+        <p id="detalle-pedido" class="modal-pedido__parrafo"></p>
+        <a href="#" class="modal-pedido__cerrar">Cerrar</a>
+      </div>
+    </section>
+    <!-- Fin Sección Modal Confirmación de Pedido -->
+
+    <!-- Sección Ubicación Maps-->
+    <section class="ubicacion">
       <div class="container mt-5 mb-5" id="mapa">
         <h4>Aquí nos vemos:</h4>
         <p>RP 94 s/n, intersección RP 92, M5501 Vista Flores, Mendoza</p>
@@ -383,21 +359,21 @@
         </div>
       </div>
     </section>
-    <!-- Fin ubicación Maps-->
+    <!-- Fin Sección Ubicación Maps-->
 
     <!-- Script Fontawesome -->
     <script
       src="https://kit.fontawesome.com/b3ba85b838.js"
       crossorigin="anonymous"
     ></script>
-    <!-- Script Sweetalert -Próximo desarrollo- -->
+    <!-- Script Sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Script Toastify -Próximo desarrollo- -->
+    <!-- Script Toastify -->
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <!-- Script aplicación-->
+    <!-- Scripts aplicación-->
     <script src="./js/producto.js"></script>
     <script src="./js/carrito.js"></script>
     <script src="./js/formulario.js"></script>
